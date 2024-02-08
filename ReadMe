@@ -1,0 +1,29 @@
+# Volume migration command default location: /var/lib/docker/volumes
+docker container run --rm -it \
+           -v old_volume:/from \
+           -v new_volume:/to \
+           ubuntu bash -c "cd /from ; cp -av . /to"
+           
+# https://github.com/kshcherban/acme-nginx
+
+# letsEncrypt zerossl client commands for cert creation
+# https://hub.docker.com/r/zerossl/client/
+
+cd proxy
+mkdir html
+# add under volume for nginx ./html:/usr/share/nginx/html:ro so that validation file can be created
+mkdir html/.well-known/
+mkdir html/.well-known/acme-challenge/
+# put below in nginx config of virtual server
+ location /.well-known/acme-challenge/ {
+   root /usr/share/nginx/html;
+  }
+# Pull the docker image of zerossl client and run the client
+docker pull zerossl/client
+
+alias le.pl='docker run -it -v ./ssl:/data -v ./public_html/.well-known/acme-challenge:/webroot -u $(id -u) --rm zerossl/client'
+
+le.pl --key web.healthybitesusa.com.account.key --csr web.healthybitesusa.com.csr --csr-key web.healthybitesusa.com.key --crt web.healthybitesusa.com.crt --domains "web.healthybitesusa.com" --generate-missing --live
+# Above command will print the file name and content which need to be created under .well-known/acme-challenge 
+# Go to new bash and use below command create and add contant of the file
+nano html/.well-known/acme-challenge/<file name>
