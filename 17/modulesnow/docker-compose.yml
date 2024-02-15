@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  modulesnow:
+    image: odoo:17.0
+    ports:
+      - "8009:8069"
+      - "8019:8072"
+    volumes:
+      - modulesnow-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - PASSWORD_FILE=/run/secrets/postgresql_password
+    secrets:
+      - postgresql_password
+    networks:
+      - 17_lolo
+volumes:
+  modulesnow-web-data:
+
+secrets:
+  postgresql_password:
+    file: ../odoo_pg_pass.txt
+networks:
+  17_lolo:
+    external: true

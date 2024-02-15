@@ -1,5 +1,5 @@
 17/ytwusa/config/odoo.conf
-17/proxy/ssl/carcal.3utilities.com.crt
+17/proxy/ssl/modulesnow.ddns.net.crt
 17/proxy/ssl/staging-crm.shablalab.com.account.key
 17/proxy/ssl/staging-crm.shablalab.com.crt
 17/proxy/ssl/staging-crm.shablalab.com.csr
@@ -8,13 +8,9 @@
 17/proxy/ssl/ytwusa.3utilities.com.crt
 17/proxy/ssl/ytwusa.3utilities.com.csr
 17/proxy/ssl/ytwusa.3utilities.com.key
-17/proxy/config_avl/certbot.conf
-17/proxy/config_avl/staging-crm.shablalab.com.config
 17/proxy/html/.well-known/acme-challenge/jrfeTt37GVeFQfObGbxPx9W_mB-vheYbwrMPP2Isiy0
 17/sbrmala/config/odoo.conf
-/17/hbusa/config/odoo.conf
-/17/proxy/ssl/carcal.3utilities.com.key
-/17/proxy/config/hbusa.conf
-/17/proxy/config/sbrmala.conf
-/17/proxy/config/ytwusa.conf
-/17/odoo_pg_pass.txt
+17/modulesnow/config/odoo.conf
+17/hbusa/config/odoo.conf
+17/proxy/ssl/modulesnow.ddns.net.key
+17/odoo_pg_pass.txt
