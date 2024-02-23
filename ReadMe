@@ -28,3 +28,17 @@ le.pl --key modulesnow.com.account.key --csr modulesnow.com.csr --csr-key module
 # Above command will print the file name and content which need to be created under .well-known/acme-challenge 
 # Go to new bash and use below command create and add contant of the file
 nano html/.well-known/acme-challenge/<file name>
+
+#####Replace commands for www.odoo.com ######
+https://www.odoo.com/ - > https://www.modulesnow.com/
+https://www.odoo.com? -> https://www.modulesnow.com?
+https://www.odoo.com" - > https://www.modulesnow.com"
+https://www.odoo.com\" -> https://www.modulesnow.com\"
+https://www.odoo.com -> https://www.modulesnow.com
+>Odoo</a> -> >ModulesNow</a>
+>Odoo</ -> >ModulesNow</
+https://odoo.com -> https://modulesnow.com
+
+###### Buidl#############
+python3 package.py --build-deb -p /home/jayant/IdeaProjects/docker/17.0/pub/1.1/
+docker build -t jayantrpathak/modulesnow:1.1 .
