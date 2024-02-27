@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  sbrmala:
+    image: odoo:16.0
+    ports:
+      - "8049:8069"
+      - "8059:8072"
+    volumes:
+      - sbrmala-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - PASSWORD_FILE=/run/secrets/postgresql_password
+    secrets:
+      - postgresql_password
+    networks:
+      - 17_lolo
+volumes:
+  sbrmala-web-data:
+
+secrets:
+  postgresql_password:
+    file: ../odoo_pg_pass.txt
+networks:
+  17_lolo:
+    external: true
