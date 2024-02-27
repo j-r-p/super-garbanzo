@@ -10,8 +10,8 @@ services:
       - ./config:/etc/nginx/conf.d:ro
       - ./html:/usr/share/nginx/html:ro
     networks:
-      - 17_lolo
+      - 16_lolo
 networks:
-  17_lolo:
+  16_lolo:
     external: true
     

@@ -14,7 +14,7 @@ services:
     secrets:
       - postgresql_password
     networks:
-      - 17_lolo
+      - 16_lolo
 volumes:
   modulesnow-web-data:
 
@@ -22,5 +22,5 @@ secrets:
   postgresql_password:
     file: ../odoo_pg_pass.txt
 networks:
-  17_lolo:
+  16_lolo:
     external: true
