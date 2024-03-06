@@ -11,5 +11,13 @@ update the footer
 
 -> go to technical -> email template
 
-update the footers
+
+Settings: User Reset Password -> body &  footers
+Settings: New User Invite -> footers
+Settings: New Portal Signup -> subject, body, and footers
+Settings: 2Fa Invitation -> subject and footers
+Portal: User Invite -> footers
+Gamification: Badge Received -> footer
+Forum: Email Verification -> footer
+
 
