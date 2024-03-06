@@ -1,1 +1,15 @@
+Enable Developer mode 
+
+-> go to technical -> Views
+
+Update footer of view name: digest_mail_main
+Disable view name: digest_section_mobile
+
+-> setting -> mail layout
+
+update the footer
+
+-> go to technical -> email template
+
+update the footers
 
