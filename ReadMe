@@ -25,6 +25,7 @@ alias le.pl='docker run -it -v ./ssl:/data -v ./public_html/.well-known/acme-cha
 
 le.pl --key modulesnow.com.account.key --csr modulesnow.com.csr --csr-key modulesnow.com.key --crt modulesnow.com.crt --domains "modulesnow.com" --generate-missing --live
 # le.pl --key domains.modulesnow.com.account.key --csr domains.modulesnow.com.csr --csr-key domains.modulesnow.com.key --crt domains.modulesnow.com.crt --domains "*.modulesnow.com,modulesnow.com" --generate-missing --handle-as dns --live
+# le.pl --key web.healthybitesusa.com.account.key --csr web.healthybitesusa.com.csr --csr-key web.healthybitesusa.com.key --crt web.healthybitesusa.com.crt --domains "shop.healthybitesusa.com" --generate-missing --handle-as dns --live
 # Above command will print the file name and content which need to be created under .well-known/acme-challenge 
 # Go to new bash and use below command create and add contant of the file
 nano html/.well-known/acme-challenge/<file name>
