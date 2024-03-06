@@ -2,7 +2,7 @@ Enable Developer mode
 
 -> go to technical -> Views
 
-Update footer of view name: digest_mail_main
+Update footer(send by and powered by) of view name: digest_mail_main
 Disable view name: digest_section_mobile
 
 -> setting -> mail layout
