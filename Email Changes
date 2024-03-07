@@ -25,8 +25,12 @@ Calendar: Meeting Invitation -> Body
 Calendar: Reminder -> Body
 IAP Lead Generation Notification -> Signature
 
-Update the bot name:
+Update the bot name using super user:
 technical -> user-setting
+preference -> email to noreply
+
+system parameter:
+noreply
 
 APP menu:
 groups -> search setting -> menu -> add APP menu
