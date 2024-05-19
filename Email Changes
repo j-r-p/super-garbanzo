@@ -1,0 +1,38 @@
+Enable Developer mode 
+
+-> go to technical -> Views
+
+Update footer(send by and powered by) of view name: digest_mail_main
+Disable view name: digest_section_mobile
+
+-> setting -> mail layout
+
+update the footer
+
+-> go to technical -> email template
+
+
+Settings: User Reset Password -> body &  footers
+Settings: New User Invite -> footers
+Settings: New Portal Signup -> subject, body, and footers
+Settings: 2Fa Invitation -> subject
+Portal: User Invite -> footers
+Gamification: Badge Received -> footer
+Forum: Email Verification -> footer
+Calendar: Date Updated -> Body
+Calendar: Event Update -> Body
+Calendar: Meeting Invitation -> Body
+Calendar: Reminder -> Body
+IAP Lead Generation Notification -> Signature
+
+Update the bot name using super user:
+technical -> user-setting
+preference -> email to noreply
+
+system parameter:
+noreply
+
+APP menu:
+groups -> search setting -> menu -> add APP menu
+
+
