@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  symd:
+    image: jayantrpathak/msn:16.1
+    ports:
+      - "5089:8069"
+      - "5092:8072"
+    volumes:
+      - symd-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./addons:/mnt/extra-addons
+    environment:
+      - PASSWORD_FILE=/run/secrets/postgresql_password
+    secrets:
+      - postgresql_password
+    networks:
+      - 16_lolo
+volumes:
+  symd-web-data:
+
+secrets:
+  postgresql_password:
+    file: ../odoo_pg_pass.txt
+networks:
+  16_lolo:
+    external: true
