@@ -44,4 +44,5 @@ https://apps.odoo.com/ -> https://modulesnow.com/
 "Odoo" -> "Modules Now"
 ###### Buidl#############
 python3 package.py --build-deb -p /home/jayant/IdeaProjects/docker/17.0/pub/1.1/
-docker build -t jayantrpathak/modulesnow:1.1 .
+docker build -t jayantrpathak/msn:16.1 .
+ocker push jayantrpathak/msn:16.1
