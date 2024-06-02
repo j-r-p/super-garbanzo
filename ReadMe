@@ -46,3 +46,18 @@ https://apps.odoo.com/ -> https://modulesnow.com/
 python3 package.py --build-deb -p /home/jayant/IdeaProjects/docker/17.0/pub/1.1/
 docker build -t jayantrpathak/msn:16.1 .
 docker push jayantrpathak/msn:16.1
+
+###########copy###########################
+scp -i "aws_ec2.pem" -r /home/jayant/IdeaProjects/super-garbanzo/16/proxy/ssl/* ubuntu@ec2-52-91-121-221.compute-1.amazonaws.com:/home/ubuntu/super-garbanzo/16/proxy/ssl 
+scp -i "aws_ec2.pem" -r /home/jayant/IdeaProjects/super-garbanzo/16/postfixsetup_password.txt ubuntu@ec2-52-91-121-221.compute-1.amazonaws.com:/home/ubuntu/super-garbanzo/16/ 
+
+#####################Copy backup file #########################################
+scp -i "aws_ec2.pem" -r /home/jayant/IdeaProjects/super-garbanzo/16/ ubuntu@100.25.150.29:/home/ubuntu/super-garbanzo/ 
+
+################Back up task####################################################
+# Back up 16_odoo-db-data
+docker run --rm --volumes-from 99080e343208 -v $(pwd):/backup ubuntu tar cvf /backup/dbbackup.tar .
+# Back up modulesnow_modulesnow-web-data
+docker run --rm --volumes-from 7ea0e39191b7 -v $(pwd):/backup ubuntu tar cvf /backup/msnbackup.tar .
+# Back up imgenv_dist-web-data
+docker run --rm --volumes-from ef38a25bab91 -v $(pwd):/backup ubuntu tar cvf /backup/imgbackup.tar .
