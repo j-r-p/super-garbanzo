@@ -54,21 +54,6 @@ scp -i "aws_ec2.pem" -r /home/jayant/IdeaProjects/super-garbanzo/16/postfixsetup
 #####################Copy backup file #########################################
 scp -i "aws_ec2.pem" -r /home/jayant/IdeaProjects/super-garbanzo/16/ ubuntu@100.25.150.29:/home/ubuntu/super-garbanzo/ 
 
-################Back up task####################################################
-# Back up 16_odoo-db-data
-docker run --rm --volumes-from 99080e343208 -v $(pwd):/backup ubuntu tar cvf /backup/dbbackup.tar .
-# Back up modulesnow_modulesnow-web-data
-docker run --rm --volumes-from 7ea0e39191b7 -v $(pwd):/backup ubuntu tar cvf /backup/msnbackup.tar .
-# Back up imgenv_dist-web-data
-docker run --rm --volumes-from ef38a25bab91 -v $(pwd):/backup ubuntu tar cvf /backup/imgbackup.tar .
-
-################ Restore data ####################################################
-# Restore modulesnow_modulesnow-web-data
-docker run --rm --volumes-from f34094e50636 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf msnbackup.tar --strip 1"
-
-
-METHOD 2
-
 # Back MSN
 
 docker run --rm \
@@ -83,3 +68,33 @@ docker run --rm \
 -v $(pwd):/backup \
 busybox \
 tar -xzvf /backup/modulesnow_modulesnow-web-data.tar.gz -C /
+
+# Back Imegica
+
+docker run --rm \
+  --mount source=imgenv_dist-web-data,target=/var/lib/odoo \
+  -v $(pwd):/backup \
+  busybox \
+  tar -czvf /backup/imgenv_dist-web-data.tar.gz /var/lib/odoo
+
+# Restore Imegica
+docker run --rm \
+--mount source=imgenv_dist-web-data,target=/var/lib/odoo \
+-v $(pwd):/backup \
+busybox \
+tar -xzvf /backup/imgenv_dist-web-data.tar.gz -C /
+
+# Back DB
+
+docker run --rm \
+  --mount source=16_odoo-db-data,target=/var/lib/postgresql/data/pgdata \
+  -v $(pwd):/backup \
+  busybox \
+  tar -czvf /backup/16_odoo-db-data.tar.gz /var/lib/postgresql/data/pgdata
+
+# Restore DB
+docker run --rm \
+--mount source=16_odoo-db-data,target=/var/lib/postgresql/data/pgdata \
+-v $(pwd):/backup \
+busybox \
+tar -xzvf /backup/16_odoo-db-data.tar.gz -C /
