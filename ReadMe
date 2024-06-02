@@ -61,3 +61,25 @@ docker run --rm --volumes-from 99080e343208 -v $(pwd):/backup ubuntu tar cvf /ba
 docker run --rm --volumes-from 7ea0e39191b7 -v $(pwd):/backup ubuntu tar cvf /backup/msnbackup.tar .
 # Back up imgenv_dist-web-data
 docker run --rm --volumes-from ef38a25bab91 -v $(pwd):/backup ubuntu tar cvf /backup/imgbackup.tar .
+
+################ Restore data ####################################################
+# Restore modulesnow_modulesnow-web-data
+docker run --rm --volumes-from f34094e50636 -v $(pwd):/backup ubuntu bash -c "cd /dbdata && tar xvf msnbackup.tar --strip 1"
+
+
+METHOD 2
+
+# Back MSN
+
+docker run --rm \
+  --mount source=modulesnow_modulesnow-web-data,target=/var/lib/odoo \
+  -v $(pwd):/backup \
+  busybox \
+  tar -czvf /backup/modulesnow_modulesnow-web-data.tar.gz /var/lib/odoo
+
+# Restore MSN
+docker run --rm \
+--mount source=modulesnow_modulesnow-web-data,target=/var/lib/odoo \
+-v $(pwd):/backup \
+busybox \
+tar -xzvf /backup/modulesnow_modulesnow-web-data.tar.gz -C /
