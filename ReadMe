@@ -98,3 +98,7 @@ docker run --rm \
 -v $(pwd):/backup \
 busybox \
 tar -xzvf /backup/16_odoo-db-data.tar.gz -C /
+
+##Docker build
+docker build -t jayantrpathak/msn:16.1 .
+docker push -t jayantrpathak/msn:16.1
