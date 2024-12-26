@@ -27,6 +27,7 @@ le.pl --key modulesnow.com.account.key --csr modulesnow.com.csr --csr-key module
 # le.pl --key domains.modulesnow.com.account.key --csr domains.modulesnow.com.csr --csr-key domains.modulesnow.com.key --crt domains.modulesnow.com.crt --domains "*.modulesnow.com,modulesnow.com" --generate-missing --handle-as dns --live
 # le.pl --key web.healthybitesusa.com.account.key --csr web.healthybitesusa.com.csr --csr-key web.healthybitesusa.com.key --crt web.healthybitesusa.com.crt --domains "shop.healthybitesusa.com" --generate-missing --handle-as dns --live
 # le.pl --key domains.fixmywaterpa.com.account.key --csr domains.fixmywaterpa.com.csr --csr-key domains.fixmywaterpa.com.key --crt domains.fixmywaterpa.com.crt --domains "fixmywaterpa.com" --generate-missing --live
+# le.pl --key www.imagicaevents.com.account.key --csr www.imagicaevents.com.csr --csr-key www.imagicaevents.com.key --crt www.imagicaevents.com.crt --domains "www.imagicaevents.com" --generate-missing --live
 # Above command will print the file name and content which need to be created under .well-known/acme-challenge 
 # Go to new bash and use below command create and add contant of the file
 nano html/.well-known/acme-challenge/<file name>
