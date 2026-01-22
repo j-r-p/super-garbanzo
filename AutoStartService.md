@@ -35,7 +35,9 @@ Run these commands to register the service to run on every reboot:
 sudo chmod +x /home/ubuntu/super-garbanzo/16/startup.sh
 sudo systemctl daemon-reload
 sudo systemctl enable super-garbanzo.service
-
+#test
+sudo systemctl start super-garbanzo.service
+sudo systemctl status super-garbanzo.service
 ```
 
 ---
