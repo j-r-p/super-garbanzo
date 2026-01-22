@@ -107,3 +107,9 @@ tar -xzvf /backup/16_odoo-db-data.tar.gz -C /
 ##Docker build
 docker build -t jayantrpathak/msn:16.1 .
 docker push jayantrpathak/msn:16.1
+
+## Renew cert
+sudo su
+cd /home/ubuntu/super-garbanzo/16/proxy
+docker compose run --rm certbot renew
+docker compose exec proxy nginx -s reload
