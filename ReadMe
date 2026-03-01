@@ -65,3 +65,22 @@ sudo su
 cd /home/ubuntu/super-garbanzo/16/proxy
 docker compose run --rm certbot renew
 docker compose exec proxy nginx -s reload
+
+###Disk Clean up #######
+df -h
+sudo du -h --max-depth=1 / | sort -hr
+#APT Package Cache
+sudo apt-get clean
+#Docker Cleanup
+#If you see /var/lib/docker taking up several gigabytes, 
+#your old images and stopped containers are the culprit. 
+#Run this to reclaim space safely:
+docker system prune -a
+
+#A Quick Note on AWS
+#Because you are on an xvda volume (AWS), if you find that you simply 
+#need more than 13GB for your work, you can actually expand the 
+#EBS volume in the AWS Console without stopping the instance. After expanding it there, you would just 
+#run 
+sudo growpart /dev/xvda 1
+sudo resize2fs /dev/root
